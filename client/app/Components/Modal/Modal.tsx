@@ -153,11 +153,11 @@ function Modal() {
         const afterText = task.description?.substring(end) || '';
         
         // Check if already numbered
-        const isNumbered = lines.some(line => /^\d+\.\s/.test(line.trim()));
+        const isNumbered = lines.some((line: string) => /^\d+\.\s/.test(line.trim()));
         
         if (isNumbered) {
           // Remove numbering
-          const unnumberedLines = lines.map(line => {
+          const unnumberedLines = lines.map((line: string) => {
             return line.replace(/^\s*\d+\.\s*/, '');
           }).join('\n');
           
@@ -172,7 +172,7 @@ function Modal() {
         } else {
           // Add numbering
           let counter = 1;
-          const numberedLines = lines.map((line) => {
+          const numberedLines = lines.map((line: string) => {
             if (line.trim()) {
               return `${counter++}. ${line}`;
             }
